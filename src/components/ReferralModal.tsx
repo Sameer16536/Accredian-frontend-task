@@ -15,6 +15,7 @@ const ReferralModal: React.FC<ReferralModalProps> = ({ isOpen, onClose }) => {
   const [username, setUsername] = useState('');
   const [referrerEmail, setReferrerEmail] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
+  const [data,setData]=useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,6 +29,21 @@ const ReferralModal: React.FC<ReferralModalProps> = ({ isOpen, onClose }) => {
     console.log(response.data)
     setReferralCode(response.data.referralCode)
 
+  }
+  const sendData  = async()=>{
+    const res = await axios.post(`${import.meta.env.VITE_API_PREFIX}/referree`,{
+      email,
+      referralCode,
+    })
+  }
+
+  const referralData = async()=>{
+    const res = await axios.post(`${import.meta.env.VITE_API_PREFIX}/referral`,{
+      email,
+      username,
+      referrerEmail,
+      referralCode
+    })
   }
 
   return (
@@ -63,7 +79,7 @@ const ReferralModal: React.FC<ReferralModalProps> = ({ isOpen, onClose }) => {
             className="w-full p-2 border rounded"
             required
           />
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">Submit</button>
+          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded" onClick={sendData}  >Submit</button>
         </form>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -100,7 +116,7 @@ const ReferralModal: React.FC<ReferralModalProps> = ({ isOpen, onClose }) => {
             className="w-full p-2 border rounded"
             required
           />
-          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded">Send</button>
+          <button type="submit" className="w-full bg-blue-500 text-white p-2 rounded" onClick={referralData}>Send</button>
         </form>
       )}
       {showSuccess && (

@@ -6,7 +6,7 @@ const ImgSec: React.FC = () => {
   return (
     <section className="flex justify-between items-center bg-white p-8">
       <div>
-        <h1 className="text-4xl font-bold">Let's Learn & Earn</h1>
+        <h1 className="text-4xl font-bold">Let's Learn <br /> & Earn</h1>
         <p className="mt-4 text-xl">Get a chance to win up-to Rs. 15,000</p>
         <Button name={"Refer now"} />
       </div>
