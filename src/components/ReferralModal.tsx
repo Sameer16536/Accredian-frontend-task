@@ -15,7 +15,7 @@ const ReferralModal: React.FC<ReferralModalProps> = ({ isOpen, onClose }) => {
   const [username, setUsername] = useState('');
   const [referrerEmail, setReferrerEmail] = useState('');
   const [showSuccess, setShowSuccess] = useState(false);
-  const [data,setData]=useState('')
+  
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,19 +26,20 @@ const ReferralModal: React.FC<ReferralModalProps> = ({ isOpen, onClose }) => {
     const response = await axios.post(`${import.meta.env.VITE_API_PREFIX}/generatecode`, {
       email
     })
-    console.log(response.data)
+
     setReferralCode(response.data.referralCode)
 
   }
   const sendData  = async()=>{
-    const res = await axios.post(`${import.meta.env.VITE_API_PREFIX}/referree`,{
+    await axios.post(`${import.meta.env.VITE_API_PREFIX}/referree`,{
       email,
       referralCode,
     })
+    
   }
 
   const referralData = async()=>{
-    const res = await axios.post(`${import.meta.env.VITE_API_PREFIX}/referral`,{
+ await axios.post(`${import.meta.env.VITE_API_PREFIX}/referral`,{
       email,
       username,
       referreeEmail:referrerEmail,

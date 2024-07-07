@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 //Modal page
 const Refer = () => {
