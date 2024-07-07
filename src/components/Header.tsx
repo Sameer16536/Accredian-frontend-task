@@ -3,8 +3,8 @@ import logo from '../images/logo.png';
 
 const Header: React.FC = () => {
   return (
-    <header className="flex justify-between items-center p-4 shadow-md bg-white">
-      <div className="flex items-center">
+    <header className="flex flex-wrap justify-between items-center p-4 shadow-md bg-white">
+      <div className="flex items-center w-full sm:w-auto mb-4 sm:mb-0">
         <img src={logo} alt="Accredian Logo" className="h-8" />
         <button 
           id="dropdownDefaultButton" 
@@ -25,15 +25,16 @@ const Header: React.FC = () => {
             <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Course 4</a></li>
           </ul>
         </div>
-
-        <nav className="ml-96">
-          <a href="#" className="mx-2 text-gray-700 hover:text-blue-500">Refer & Earn</a>
-          <a href="#" className="mx-2 text-gray-700 hover:text-blue-500">Resources</a>
-          <a href="#" className="mx-2 text-gray-700 hover:text-blue-500">About Us</a>
-        </nav>
       </div>
-      <div>
-        <button className="mr-2 text-gray-700 hover:text-blue-500 rounded px-4 py-2">Login</button>
+      
+      <nav className="flex flex-col sm:flex-row items-center w-full sm:w-auto sm:ml-96">
+        <a href="#" className="mx-2 text-gray-700 hover:text-blue-500">Refer & Earn</a>
+        <a href="#" className="mx-2 text-gray-700 hover:text-blue-500">Resources</a>
+        <a href="#" className="mx-2 text-gray-700 hover:text-blue-500">About Us</a>
+      </nav>
+      
+      <div className="flex flex-col sm:flex-row items-center w-full sm:w-auto">
+        <button className="mr-2 mb-2 sm:mb-0 text-gray-700 hover:text-blue-500 rounded px-4 py-2">Login</button>
         <button className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Try for free</button>
       </div>
     </header>
