@@ -41,7 +41,7 @@ const ReferralModal: React.FC<ReferralModalProps> = ({ isOpen, onClose }) => {
     const res = await axios.post(`${import.meta.env.VITE_API_PREFIX}/referral`,{
       email,
       username,
-      referrerEmail,
+      referreeEmail:referrerEmail,
       referralCode
     })
   }
