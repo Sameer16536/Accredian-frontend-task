@@ -23,12 +23,12 @@ const Home = () => {
       <div>
         <ImgSec />
       </div>
-      <div>
+      <div className='pt-8'>
       <ReferralBenefitsSection />
       </div>
       <div>
         <Tables />
-        <Button name={"Refer now"} />
+        
       </div>
       <div>
         <FAQSection/>
